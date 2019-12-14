@@ -23,17 +23,19 @@ void factorial(int n){
 
     dq.push_back(1);
     for(int i = 2; i <= n; i++){
-        int size = dq.size();
+        int m = dq.size();
         int c = 0;
-        for(int j = size - 1; j >= 0; j--){
-            int temp, ld;
+        for(int j = m - 1; j >= 0; j--){
+            int temp;
             temp = i * dq[j] + c;
-            ld = temp % 10;
-            dq[j] = ld;
+            dq[j] = temp % 10;
             c = temp / 10;
         }
-        if(c != 0)
-            dq.push_front(c);
+        while(c != 0){
+            int temp = c % 10;
+            dq.push_front(temp);
+            c /= 10;
+        }
     }
     for(int i = 0; i < dq.size(); i++)
         cout << dq[i];
