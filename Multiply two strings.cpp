@@ -17,6 +17,12 @@ int main(void){
     cin >> t;
     while(t--){
         cin >> s1 >> s2;
+        if(!((s1[0] == '-' && s2[0] =='-') ||(s1[0] != '-' && s2[0] !='-')))
+            cout << "-";
+        if(s1[0] == '-')
+            s1.erase(s1.begin());
+        if(s2[0] == '-')
+            s2.erase(s2.begin());
         multiply(s1, s2);
         cout << endl;
     }
