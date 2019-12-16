@@ -60,6 +60,7 @@ void findDiff(string s1, string s2){
         int temp = (s1[i] - '0') - c;
         if(temp < 0){
             temp += 10;
+            c = 1;
         }
         else
             c = 0;
